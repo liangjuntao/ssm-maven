@@ -21,13 +21,13 @@
 		<property name="loginUrl" value="/login.jsp" />
 		<property name="successUrl" value="/user/toIndex" />
 		<!-- 用户访问未对其授权的资源时，所显示的连接 -->
-		<property name="unauthorizedUrl" value="/login.jsp" />
+		<property name="unauthorizedUrl" value="unauthorizedUrl.jsp" />
 		<property name="filterChainDefinitions">
 			<value>
-				<!-- /login.jsp = anon -->
+			 	/login.jsp = anon 
 				/user/login = anon
 				/resources/** = anon <!-- 匿名过滤器，所有人都可以访问 -->
-				
+				/** = authc
 			</value>
 		</property>
 		

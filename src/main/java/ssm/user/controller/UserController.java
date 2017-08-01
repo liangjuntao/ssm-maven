@@ -36,7 +36,7 @@ public class UserController {
 	public ResponseResult login(User user){
 		ResponseResult responseResult = new ResponseResult(ResponseResult.FAILURECODE);
 		logger.info("---------"+user+"--login处理中------------");
-		//这个是什么作用？不是很懂。
+		//这个是一个门面，表示当前需要认证的程序，用户等
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getName(),user.getPassword());
 		try {
@@ -44,16 +44,21 @@ public class UserController {
 			subject.login(token);
 			responseResult.setMsg("登录成功");
 			responseResult.setCode(ResponseResult.SUCCESSCODE);
+			subject.getSession().setAttribute("currentUser", user);
 		} catch(UnknownAccountException ue) {
 			token.clear();
 			responseResult.setMsg("登录失败，您输入的账号不存在");
+			subject.getSession().removeAttribute("currentUser");
 		} catch(IncorrectCredentialsException ie) {
 			token.clear();
 			responseResult.setMsg("登录失败，密码不匹配");
+			subject.getSession().removeAttribute("currentUser");
 		} catch(RuntimeException re) {
 			token.clear();
 			responseResult.setMsg("登录失败");
+			subject.getSession().removeAttribute("currentUser");
 		}
+		
 		return responseResult;
 	}
 	
@@ -62,11 +67,32 @@ public class UserController {
 		return "index";
 	}
 	
-	
-	
 	@RequestMapping("/findUserById")
 	public User findUserById(String id){
 		return userService.findUserById(Integer.valueOf(id));
 	}
+	
+	@RequestMapping(value= "/test" ,method =RequestMethod.POST )
+	@ResponseBody
+	public ResponseResult test(User user){
+		ResponseResult responseResult = new ResponseResult(ResponseResult.FAILURECODE);
+		User u = userService.getByLoginName(user.getName());
+		return responseResult;
+	}
+	
+	
+	@RequestMapping(value= "/logout" )
+	@ResponseBody
+	public ResponseResult loginOut(){
+		Subject subject = SecurityUtils.getSubject();
+		subject.logout();
+		ResponseResult responseResult = new ResponseResult(ResponseResult.SUCCESSCODE,"退出成功");
+		return responseResult;
+	}
+	
+	
+	
+	
+	
 	
 }

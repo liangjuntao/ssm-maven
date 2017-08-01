@@ -39,7 +39,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {
-
+		
 		return null;
 	}
 
@@ -59,7 +59,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 
 		User user = null;
 		try {
-			user = userService.getByLoginName(new User(userName, null));
+			user = userService.getByLoginName(userName);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			logger.warn("获取用户失败\n" + ex.getMessage());

@@ -38,7 +38,7 @@
 		<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"></property>
 		<!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
 		<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"></property>
-		<property name="validationQuery" value="${jdbc.validationQuery}"></property>
+		<!-- <property name="validationQuery" value="${jdbc.validationQuery}"></property> -->
 		<property name="testWhileIdle" value="${jdbc.testWhileIdle}"></property>
 		<property name="testOnBorrow" value="${jdbc.testOnBorrow}"></property>
 		<property name="testOnReturn" value="${jdbc.testOnReturn}"></property>
@@ -58,7 +58,7 @@
 		<!-- 注入Mybatis的全局配置文件sqlMapConfig.xml -->
 		<property name="configLocation" value="classpath:config/mybatis/sqlMapConfig.xml" />
 		<!-- 加载mapper文件，或者在sqlMapConf中利用mapper属性进行配置。二选一。-->
-		<property name="mapperLocations" value="classpath*:ssm/**/mapper/*Mapper.xml"/>
+		<property name="mapperLocations" value="classpath*:ssm/*/mapper/*Mapper.xml"/>
 	</bean>
 	
 	<!--配置sqlSessionTemplate -->

@@ -9,7 +9,7 @@
 	</select>
 	
 	<!-- 根据用户登录名和法院编码获取用户信息 -->
-  <select id="getByLoginName" parameterType="user" resultType="user">
+  <select id="getByLoginName" parameterType="string" resultType="ssm.user.pojo.User">
     select * from user
     where name = #{name}
   </select>

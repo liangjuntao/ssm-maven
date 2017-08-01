@@ -12,7 +12,38 @@
 <title>login</title>
 </head>
 <body>
-欢迎
+<h4>Index Page</h4>
+${sessionScope.currentUser.name}，欢迎登录！<br></br>
+
+<button id="logout" >退出登录</button>
 </body>
 
+<script type="text/javascript" src="${ctx }/resources/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+$(function(){
+
+    $("#logout").click(function() {
+      
+            $.ajax({
+                url: "${ctx}/user/logout",
+                method: "post",
+				dataType: "json",
+                success : function(result){
+                    console.log(result);
+                    if(result.code == 1){
+                         window.location.href = "${ctx}/login.jsp";
+                    }
+                    if(result.code == 0){
+                    	alert(result.msg)
+                    }
+                }
+            });
+		})
+});
+
+
+
+
+
+</script>
 </html>

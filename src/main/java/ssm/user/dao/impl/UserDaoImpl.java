@@ -26,4 +26,11 @@ public class UserDaoImpl implements UserDao {
 		return session.selectOne("getByLoginName", user);
 	}
 
+	public User getByLoginName(String name) {
+		return session.selectOne("getByLoginName", name);
+	}
+	
+	
+
+	
 }

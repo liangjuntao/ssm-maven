@@ -6,4 +6,6 @@ public interface UserDao {
 	User findUserById(Integer id);
 
 	User getByLoginName(User user);
+
+	User getByLoginName(String name);
 }

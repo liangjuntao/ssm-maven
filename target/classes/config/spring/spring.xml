@@ -16,7 +16,7 @@
 	<!-- spring必须要全部加载完bean之后, shiro再去调用bean实例引用 -->
 	<import resource="classpath:config/spring/spring-service.xml" />
 	<import resource="classpath:config/spring/spring-mybatis.xml" />
-	<import resource="classpath:config/spring/spring-shiro.xml"/>
+	<import resource="classpath:config/spring/spring-shiro.xml"/> 
 	<!--<import resource="classpath:config/spring/spring-transaction.xml" /> -->
 	
 

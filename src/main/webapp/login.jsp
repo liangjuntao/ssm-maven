@@ -12,17 +12,18 @@
 <title>login</title>
 </head>
 <body>
+<h4>Login Page</h4>
 <%-- <form id="form1" action="${ctx }/user/login" method="post"> --%>
-<form id="form1" method="post">
+<form id="form1">
 	<div>
 		<input name="name" type="text" id="loginName" placeholder="username" />
 	</div>
 	<div>
 		<input name="password" type="password" id="password" placeholder="password" />
 	</div>
+	</form>
 	<!-- <button type="submit">login</button> -->
 	<button id="loginBtn">login</button>
-	</form>
 </body>
 
 
@@ -41,9 +42,8 @@ $(function(){
                 success : function(result){
                     console.log(result);
                     if(result.code == 1){
-                    	alert(result.msg);
-/*                         window.location.href = "${ctx}/user/toIndex";
- */                    }
+                         window.location.href = "${ctx}/user/toIndex";
+                    }
                     if(result.code == 0){
                     	alert(result.msg)
                     }
