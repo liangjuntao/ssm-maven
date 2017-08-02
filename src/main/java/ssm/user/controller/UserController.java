@@ -1,5 +1,8 @@
 package ssm.user.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -11,14 +14,18 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import ssm.base.pojo.ResponseResult;
+import ssm.menu.pojo.Menu;
+import ssm.menu.service.MenuService;
 import ssm.user.pojo.User;
 import ssm.user.service.UserService;
+import ssm.util.MenuUtil;
 
 
 
@@ -30,6 +37,9 @@ public class UserController {
 	
 	@Resource
 	UserService userService;
+	
+	@Resource
+	MenuService menuService;
 	
 	@RequestMapping(value= "/login" ,method =RequestMethod.POST )
 	@ResponseBody
@@ -63,7 +73,10 @@ public class UserController {
 	}
 	
 	@RequestMapping("/toIndex")
-	public String toIndex(){
+	public String toIndex(ModelMap model){
+		List<Menu> menus = menuService.findAll();
+		Map<String,Object> map = MenuUtil.generatorMenuList(menus);
+		model.put("menus", map);
 		return "index";
 	}
 	

@@ -10,16 +10,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>login</title>
+<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 </head>
 <body>
 <h4>Login Page</h4>
 <%-- <form id="form1" action="${ctx }/user/login" method="post"> --%>
 <form id="form1">
 	<div>
-		<input name="name" type="text" id="loginName" placeholder="username" />
+		<span>用户名：</span><input name="name" type="text" id="loginName" placeholder="username" />
 	</div>
 	<div>
-		<input name="password" type="password" id="password" placeholder="password" />
+		<span>密 &nbsp;&nbsp;码：</span><input name="password" type="password" id="password" placeholder="password" />
 	</div>
 	</form>
 	<!-- <button type="submit">login</button> -->
@@ -56,7 +59,7 @@ $(function(){
 function checkLogin(){
     var loginName = $('#loginName').val();
     var password = $('#password').val();
-    console.log("ç»å½ï¼",loginName,password);
+   
     if(loginName == null || $.trim(loginName) == ''){
         if(password == null ||  $.trim(password) == ''){
             return false;
