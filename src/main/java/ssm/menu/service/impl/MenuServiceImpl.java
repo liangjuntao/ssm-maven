@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import ssm.menu.dao.MenuDao;
 import ssm.menu.pojo.Menu;
 import ssm.menu.service.MenuService;
+import ssm.user.pojo.User;
 
 @Service
 public class MenuServiceImpl implements MenuService {
@@ -15,8 +16,8 @@ public class MenuServiceImpl implements MenuService {
 	@Autowired
 	private MenuDao menuDao;
 
-	public List<Menu> findAll() {
-		return menuDao.findAll();
+	public List<Menu> findAll(User user) {
+		return menuDao.findAll(user);
 	}
 
 }

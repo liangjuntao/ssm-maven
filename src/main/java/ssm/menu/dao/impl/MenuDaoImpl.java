@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import ssm.menu.dao.MenuDao;
 import ssm.menu.pojo.Menu;
+import ssm.user.pojo.User;
 
 @Repository
 public class MenuDaoImpl implements MenuDao {
@@ -19,8 +20,8 @@ private SqlSession session;
 		this.session = session;
 	}
 	
-	public List<Menu> findAll() {
-		return session.selectList("findAll");
+	public List<Menu> findAll(User user) {
+		return session.selectList("findAll",user);
 	}
 
 }

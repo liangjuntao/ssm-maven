@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
@@ -54,27 +55,29 @@ public class UserController {
 			subject.login(token);
 			responseResult.setMsg("登录成功");
 			responseResult.setCode(ResponseResult.SUCCESSCODE);
-			subject.getSession().setAttribute("currentUser", user);
 		} catch(UnknownAccountException ue) {
 			token.clear();
 			responseResult.setMsg("登录失败，您输入的账号不存在");
-			subject.getSession().removeAttribute("currentUser");
 		} catch(IncorrectCredentialsException ie) {
 			token.clear();
 			responseResult.setMsg("登录失败，密码不匹配");
-			subject.getSession().removeAttribute("currentUser");
 		} catch(RuntimeException re) {
 			token.clear();
 			responseResult.setMsg("登录失败");
+		}
+		//认证不通过，删除shiro中添加的session
+		if( ! subject.isAuthenticated()){
 			subject.getSession().removeAttribute("currentUser");
 		}
-		
 		return responseResult;
 	}
 	
 	@RequestMapping("/toIndex")
-	public String toIndex(ModelMap model){
-		List<Menu> menus = menuService.findAll();
+	public String toIndex(ModelMap model,HttpServletRequest req){
+		Subject subject = SecurityUtils.getSubject();
+		User user = (User)subject.getSession().getAttribute("currentUser");
+		
+		List<Menu> menus = menuService.findAll(user);
 		Map<String,Object> map = MenuUtil.generatorMenuList(menus);
 		model.put("menus", map);
 		return "index";

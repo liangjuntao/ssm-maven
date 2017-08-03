@@ -1,6 +1,9 @@
 package ssm.security.shiro;
 
+import org.apache.shiro.subject.Subject;
+
 import org.apache.log4j.Logger;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AccountException;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -68,10 +71,11 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm {
 			logger.warn("用户不存在");
 			throw new UnknownAccountException("用户不存在");
 		}
-		// 到这里已经获取服务器中真实的存在的用户了。下面
-		logger.info("用户【" + userName + "】登录成功");
+		// 到这里已经获取服务器中真实的存在的用户了。下面会交给shiro去比对密码。
 		AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(userName, user.getPassword(),
 				getName());
+		Subject currentUser = SecurityUtils.getSubject();
+		currentUser.getSession().setAttribute("currentUser", user);
 		return authcInfo;
 	}
 

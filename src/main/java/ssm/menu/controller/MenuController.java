@@ -16,18 +16,6 @@ import ssm.util.MenuUtil;
 @Controller
 @RequestMapping("/menu")
 public class MenuController {
-	
 	@Autowired
 	MenuService menuService;
-	
-	@RequestMapping("/list")
-	@ResponseBody
-	private String list(ModelMap model){
-		List<Menu> menus = menuService.findAll();
-		Map<String,Object> menusMap = MenuUtil.generatorMenuList(menus);
-		model.put("menus", menusMap);
-		return "list";
-	}
-	
-
 }
