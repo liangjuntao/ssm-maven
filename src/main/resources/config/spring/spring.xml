@@ -17,6 +17,7 @@
 	<import resource="classpath:config/spring/spring-service.xml" />
 	<import resource="classpath:config/spring/spring-mybatis.xml" />
 	<import resource="classpath:config/spring/spring-shiro.xml"/> 
+	<import resource="classpath:config/spring/spring-quartz.xml"/>
 	<!--<import resource="classpath:config/spring/spring-transaction.xml" /> -->
 	
 
