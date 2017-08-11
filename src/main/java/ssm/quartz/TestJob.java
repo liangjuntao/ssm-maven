@@ -18,5 +18,4 @@ public class TestJob {
 		map.put(i, i+1);
 		System.out.println("此时个数是："+map.size());
 	}
-
 }

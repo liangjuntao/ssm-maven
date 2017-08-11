@@ -32,9 +32,7 @@ ${sessionScope.currentUser.name}，欢迎登录！<br></br>
 		</li>
 </c:forEach>
 
-<iframe>
-<span>hi</span>
-</iframe>
+
 
 
 <button id="logout" >退出登录</button>
@@ -48,7 +46,6 @@ $(function(){
 	console.log("${menus}");
 	console.log("${menus.childMenus}");
 	
-
     $("#logout").click(function() {
       
             $.ajax({
