@@ -27,10 +27,8 @@ public class JavaPromise {
                 return "task finished!";  
             }  
         }, executor);  
-  
         //采用lambada的实现方式  
         future.thenAccept(e -> System.out.println(e + " ok"));  
-          
         System.out.println("main thread is running");  
     }  
 }  
