@@ -17,7 +17,6 @@ public class JavaFuture {
         // 通常我们希望当线程执行完一些耗时的任务后，能够自动的通知我们结果，很遗憾这在原生jdk1.8之前  
         // 是不支持的，但是我们可以通过第三方的库实现真正的异步回调  
         Future<String> f = executor.submit(new Callable<String>() {  
-  
             public String call() throws Exception {  
                 System.out.println("task started!");  
                 Thread.sleep(3000);  
