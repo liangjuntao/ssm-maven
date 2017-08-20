@@ -15,7 +15,7 @@ public class PriorityBlockQueueDemo {
 		t2.setName("任务2");
 		
 		Task t3 = new Task();
-		t3.setId(1);
+		t3.setId(1);	
 		t3.setName("任务3");
 		
 		p.add(t1);
