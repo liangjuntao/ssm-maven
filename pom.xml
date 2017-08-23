@@ -27,7 +27,7 @@
 		<jstl.version>1.2</jstl.version>
 		<quartz.version>2.2.3</quartz.version>
 		<disruptor.version>3.3.6</disruptor.version>
-		<netty.version>5.0.0.Alpha1</netty.version>
+		<netty.version>5.0.0.Alpha2</netty.version>
 	</properties>
 	
 	
