@@ -14,5 +14,6 @@
 	<!-- 将带有@Service的类加到IOC容器 -->
 	<context:component-scan base-package="ssm.**.service.impl" ></context:component-scan>
 	
+	
 
 </beans>

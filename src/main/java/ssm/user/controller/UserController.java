@@ -12,14 +12,11 @@ import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.util.WebUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 
 import ssm.base.pojo.ResponseResult;
 import ssm.menu.pojo.Menu;
@@ -27,8 +24,6 @@ import ssm.menu.service.MenuService;
 import ssm.user.pojo.User;
 import ssm.user.service.UserService;
 import ssm.util.MenuUtil;
-
-
 
 @Controller
 @RequestMapping("/user")
@@ -105,10 +100,4 @@ public class UserController {
 		ResponseResult responseResult = new ResponseResult(ResponseResult.SUCCESSCODE,"退出成功");
 		return responseResult;
 	}
-	
-	
-	
-	
-	
-	
 }

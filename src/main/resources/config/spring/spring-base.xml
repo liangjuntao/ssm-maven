@@ -10,19 +10,21 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
-
 	
-	<!-- spring必须要全部加载完bean之后, shiro再去调用bean实例引用 -->
-	<import resource="classpath:config/spring/spring-service.xml" />
-	<import resource="classpath:config/spring/spring-mybatis.xml" />
-	<import resource="classpath:config/spring/spring-shiro.xml"/> 
-	<import resource= "classpath:config/spring/spring-base.xml"/>
-		
-	<!--
-		这里暂时取消，打开即可进行任务调度 
-		<import resource="classpath:config/spring/spring-quartz.xml"/> 
-	-->
-	<!--<import resource="classpath:config/spring/spring-transaction.xml" /> -->
+	<!-- 放置一些常规bean -->
 	
-
+	<!-- 引入属性文件 -->
+	<bean id="propertyResources" class="java.util.ArrayList">  
+		<constructor-arg>  
+			<list>  
+				<value>classpath:config.properties</value>  
+			</list>  
+		</constructor-arg>  
+	</bean>
+	  
+	<!-- 配置properties文件的解析对象 -->
+	<bean id="propertyConfigurer" class="ssm.util.CustomPropertyPlaceholderConfigurer">  
+		<property name="locations" ref="propertyResources" />  
+	</bean>  
+	
 </beans>
