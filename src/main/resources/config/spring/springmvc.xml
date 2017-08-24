@@ -53,4 +53,6 @@
 	<!-- 组件扫描 -->
 	<context:component-scan base-package="ssm.**.controller" ></context:component-scan>
 	
+	<import resource= "classpath:config/spring/spring-base.xml"/>
+	
 </beans>

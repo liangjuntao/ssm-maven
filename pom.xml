@@ -28,17 +28,18 @@
 		<quartz.version>2.2.3</quartz.version>
 		<disruptor.version>3.3.6</disruptor.version>
 		<netty.version>5.0.0.Alpha2</netty.version>
+		<httpclient.version>4.4</httpclient.version>
 	</properties>
 	
-	
-	
-	
-	
-	
-  
-  
-  
   <dependencies>
+  
+  	<!-- 在srping invoker中会用到这个 -->
+  	<dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpclient.version}</version>
+    </dependency>
+  
   	<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
 	<dependency>
 	    <groupId>io.netty</groupId>

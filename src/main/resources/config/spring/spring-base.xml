@@ -11,20 +11,15 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
-	<!-- 放置一些常规bean -->
+
 	
-	<!-- 引入属性文件 -->
-	<bean id="propertyResources" class="java.util.ArrayList">  
-		<constructor-arg>  
-			<list>  
-				<value>classpath:config.properties</value>  
-			</list>  
-		</constructor-arg>  
-	</bean>
-	  
-	<!-- 配置properties文件的解析对象 -->
-	<bean id="propertyConfigurer" class="ssm.util.CustomPropertyPlaceholderConfigurer">  
-		<property name="locations" ref="propertyResources" />  
-	</bean>  
+	<!-- spring http invoker服务 -->
+	<!-- 菜单接口 -->
+	<!-- <bean id="menuServiceImple" class="ssm.menu.service.impl.MenuServiceImpl"/> -->
+	<!-- 要暴露出去的接口 -->
+  	<bean name="/LocalMenuService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+    	<property name="service" ref="menuServiceImpl" />
+    	<property name="serviceInterface" value="ssm.menu.service.MenuService" />
+  	</bean>
 	
 </beans>

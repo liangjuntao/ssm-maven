@@ -24,10 +24,11 @@
 		<property name="unauthorizedUrl" value="unauthorizedUrl.jsp" />
 		<property name="filterChainDefinitions">
 			<value>
-			 	/login.jsp = anon 
+				/** = anon
+			 	<!-- /login.jsp = anon 
 				/user/login = anon
-				/resources/** = anon <!-- 匿名过滤器，所有人都可以访问 -->
-				/** = authc
+				/resources/** = anon 匿名过滤器，所有人都可以访问
+				/** = authc -->
 			</value>
 		</property>
 		
