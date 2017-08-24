@@ -1,10 +1,14 @@
 package ssm.menu.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Transient;
 
-public class Menu {
+public class Menu implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	Integer id;
 	String name;
 	Integer parentId;

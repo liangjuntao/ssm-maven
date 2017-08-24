@@ -1,11 +1,13 @@
 package ssm.user.pojo;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	protected Integer id;
 	protected String name;
 	protected String password;
-	
-	
 	
 	public User() {
 	}
