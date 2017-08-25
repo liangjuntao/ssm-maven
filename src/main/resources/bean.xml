@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+	<bean id="E" class="example.spring.ioc.England" />
+
+	<bean id="S" class="example.spring.ioc.Spain" />
+
+	<bean id="P" class="example.spring.ioc.Portugal" />
+
+</beans> 
