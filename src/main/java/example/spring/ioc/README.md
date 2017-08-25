@@ -8,11 +8,11 @@ ioc：  inverse of control
 - 通过反射，动态创建解析xml文档中定义的bena。  
 - 将创建的出来的bean放入容器。
 
-
 di注入实现思路：
-1.解析xml文档（一级bean，属性）
+1.解析xml文档
 2.解析出所有的bean
-3.对于有依赖注入的bean，通过反射set进属性中
-
+3.对于有依赖注入的bean，通过反射获取bean的setXX属性的方法，调用method.invoke(object,args...)去设置属性；  
+这也是为什么对于bean要实现set（）方法;
 
 aop实现原理：  
+
