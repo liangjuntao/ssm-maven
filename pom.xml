@@ -32,10 +32,27 @@
 		<dom4j.version>1.6</dom4j.version>
 		<jdom.version>1.0</jdom.version>
 		<jaxen.version>1.1.6</jaxen.version>
+		<jboss-marshalling.version>1.4.11.Final</jboss-marshalling.version>
+		<redis.version>2.9.0</redis.version>
 	</properties>
 	
   <dependencies>
   
+  	<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>${redis.version}</version>
+		</dependency>
+  	
+  
+  
+  	<!-- https://mvnrepository.com/artifact/org.jboss.marshalling/jboss-marshalling -->
+		<dependency>
+		    <groupId>org.jboss.marshalling</groupId>
+		    <artifactId>jboss-marshalling</artifactId>
+		    <version>${jboss-marshalling.version}</version>
+		</dependency>
   	
   
   	<!-- https://mvnrepository.com/artifact/jaxen/jaxen -->
