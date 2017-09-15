@@ -29,17 +29,18 @@ public class MyProxy {
 			
 			
 			//获取版本号,socket协议中第一个字节表示版本号
-			byte[] tmp = new byte[1];
-			//从流中读取数据，并存入缓冲区
-			a_in.read(tmp); 
-			log.info(tmp[0]);
-			
-			
+//			byte[] tmp = new byte[1];
+			//从流中读取数据，并存入缓冲区。
+//			int b = a_in.read(tmp);
+			//从流中读取一个字节
+			int b = a_in.read();
+			char c = (char) b;
+			log.info(c);
 			
 			
 			
 			//创建本地代理socket，和远程服务器做通信
-			Socket proxy_socket = new Socket(host, port);
+//			Socket proxy_socket = new Socket(host, port);
 			
 			
 		}
