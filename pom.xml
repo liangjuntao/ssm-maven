@@ -7,6 +7,28 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>ssm-maven Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+
+    <!--作为全局覆盖掉setting.xml中的配置-->
+    <repositories>
+        <repository>
+            <id>test</id>
+            <name>test</name>
+            <url>
+                http://maven.aliyun.com/nexus/content/groups/public/
+            </url>
+            <releases>
+                <updatePolicy>always</updatePolicy>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <updatePolicy>always</updatePolicy>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
   	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- XML生成路径 -->
